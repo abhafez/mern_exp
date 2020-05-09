@@ -1,0 +1,28 @@
+@import './scss/loginpage';
+
+#main-content {
+  flex: 1;
+}
+
+#navbar-logo {
+  filter: brightness(0) invert(1);
+  width: 5em;
+}
+
+#pusher {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+.ui.menu .icon.item > .icon {
+  direction: ltr;
+}
+
+#footer {
+  padding: 0px;
+}

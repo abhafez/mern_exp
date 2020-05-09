@@ -1,25 +1,24 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-
-const departments = require("./routes/api/Departments");
-
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const departments = require('./routes/api/Departments');
+const cors = require('cors');
 const app = express();
 
 // Middlewares
 app.use(bodyParser.json());
+app.use(cors());
 
 const db = process.env.MONGO_URI;
 
-app.get('/', (req, res) => {
-})
+app.get('/', (req, res) => {});
 console.log(db);
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB connected Successfully"))
+  .then(() => console.log('MongoDB connected Successfully'))
   .catch((err) => console.log(err));
 
-app.use("/api/departments", departments);
+app.use('/api/departments', departments);
 
 const port = process.env.PORT || 5000;
 

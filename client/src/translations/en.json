@@ -1,0 +1,12 @@
+{
+  "language.english": "English",
+  "language.arabic": "عربي",
+  "title.homePage": "Home Page",
+  "title.loginPage": "Login",
+  "navbar.logout": "Logout",
+  "loading.message": "Loading ...",
+  "components.footer.copyRights": "Copyright © {year}. All rights reserved",
+  "loremIpsumHeader": "lorem ipsum header",
+  "loremIpsumShort": "Labore culpa occaecat id culpa excepteur",
+  "loremIpsumLong": "Magna amet laboris cillum tempor. Consequat non in nisi dolore officia culpa adipisicing esse exercitation reprehenderit laboris. Enim pariatur tempor aute dolore. Voluptate deserunt quis qui do."
+}

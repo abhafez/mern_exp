@@ -1,0 +1,25 @@
+.locale-toggle {
+  color: #84256d;
+  margin-top: 1em;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+#login-page {
+  height: 100vh;
+  margin: 0px;
+}
+
+body {
+  height: 1vh;
+}
+
+.m0-p0 {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.login-image {
+  opacity: 0.8;
+}
