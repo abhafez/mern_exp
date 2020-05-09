@@ -14,6 +14,6 @@ const ProductsPromotionsSchema = new Schema({
   },
 });
 
-const ProductsPromotions = mongoose.model('ProductsPromotions', ProductsPromotionsSchema);
+const ProductsPromotions = mongoose.model('productsPromotions', ProductsPromotionsSchema);
 
 module.exports = ProductsPromotions;

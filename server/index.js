@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const departments = require('./routes/api/Departments');
 const promotions = require('./routes/api/Promotions');
+const products = require('./routes/api/Products');
+
 const cors = require('cors');
 const app = express();
 
@@ -21,6 +23,7 @@ mongoose
 
 app.use('/api/departments', departments);
 app.use('/api/promotions', promotions);
+app.use('/api/products', products);
 
 const port = process.env.PORT || 5000;
 
