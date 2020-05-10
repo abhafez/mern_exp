@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
  * @access Public
  */
 router.delete("/:id", (req, res) => {
-  Department.findById(req.param.id)
+  Department.findById(req.params.id)
     .then((department) =>
       department.remove().then(() => res.json({ success: true }))
     )

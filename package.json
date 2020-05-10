@@ -8,7 +8,12 @@
     "server": "cd server && env-cmd -f .env.dev nodemon index.js",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed:departments": "env-cmd -f server/.env.dev node server/seeds/Departments.js",
+    "seed:promotions": "env-cmd -f server/.env.dev node server/seeds/Promotions.js",
+    "seed:products": "env-cmd -f server/.env.dev node server/seeds/Products.js",
+    "seed:promoproducts": "env-cmd -f server/.env.dev node server/seeds/ProductPromo.js",
+    "seed": "npm run seed:departments && npm run seed:promotions && npm run seed:products && npm run seed:promoproducts"
   },
   "repository": {
     "type": "git",
