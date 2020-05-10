@@ -10,7 +10,7 @@ function HomePage() {
   const [data, setData] = useState();
   const [pageNumber, setPageNumber] = useState(1);
   const { messages } = useIntl();
-  const { response, setRequest } = useRequest(get, 'departments');
+  const { response, setRequest } = useRequest(get, `products?page=${pageNumber}&count=8`);
   useEffect(() => {
     setRequest(true);
   }, []);
@@ -31,9 +31,7 @@ function HomePage() {
         <p>{messages.loremIpsumShort}</p>
         <Divider hidden />
         <Shimmer />
-        {pageNumber}
         {JSON.stringify(data)}
-
         <Pagination
           numberOfItems={22}
           itemsPerPage={7}

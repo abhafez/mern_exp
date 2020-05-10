@@ -26,7 +26,9 @@ function Pagination({ numberOfItems, itemsPerPage, onChangePage, pageNumber }) {
 
   useEffect(() => {
     const index = currentPage - 1;
-    onChangePage(index);
+    if (index !== 0) {
+      onChangePage(index);
+    }
   }, [currentPage]);
 
   const previousButtons = () => (

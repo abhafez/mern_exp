@@ -1,4 +1,5 @@
 const express = require('express');
+const { chunk } = require('../../functions/chunk');
 const router = express.Router();
 
 const Products = require('../../models/Products');
@@ -11,6 +12,7 @@ const ProductsPromotions = require('../../models/ProductsPromotions');
  * @access Public
  */
 router.get('/', async (req, res) => {
+  console.log(req.query.page);
   let productList;
   let productsPromotionsList;
   let promotionsList;
@@ -36,7 +38,6 @@ router.get('/', async (req, res) => {
       return null;
     });
 
-    console.log(promoDetails);
     let departmentName = departmentsList.find((dep) => dep._id == product.department_id);
 
     return {
@@ -50,7 +51,9 @@ router.get('/', async (req, res) => {
       isActive: (promoDetails && Boolean(promoDetails.active)) || false,
     };
   });
-  res.status(200).json(productsWithPromos);
+  const { page, count } = req.query;
+  let paginatedData = chunk(productsWithPromos, count, page);
+  res.status(200).json(paginatedData);
 });
 
 /*
