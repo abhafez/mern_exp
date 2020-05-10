@@ -9,7 +9,7 @@ const ProductsSchema = new Schema({
     required: true,
   },
   price: {
-    type: Boolean,
+    type: Number,
     required: true,
   },
   department_id: {

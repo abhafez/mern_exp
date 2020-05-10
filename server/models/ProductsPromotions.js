@@ -9,7 +9,7 @@ const ProductsPromotionsSchema = new Schema({
     required: true,
   },
   promotion_id: {
-    type: Boolean,
+    type: String,
     required: true,
   },
 });

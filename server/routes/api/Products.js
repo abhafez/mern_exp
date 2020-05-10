@@ -1,15 +1,56 @@
 const express = require('express');
 const router = express.Router();
 
-const Product = require('../../models/Products');
-
+const Products = require('../../models/Products');
+const Departments = require('../../models/Departments');
+const Promotions = require('../../models/Promotions');
+const ProductsPromotions = require('../../models/ProductsPromotions');
 /*
  * @route GET api/detpartment
- * @description  GET All Products
+ * @description  GET All Products (Name-)
  * @access Public
  */
-router.get('/', (req, res) => {
-  Product.find().then((items) => res.json(items));
+router.get('/', async (req, res) => {
+  let productList;
+  let productsPromotionsList;
+  let promotionsList;
+  let departmentsList;
+  await Products.find()
+    .then((items) => (productList = items))
+    .catch((err) => res.json('something went wrong'));
+  await ProductsPromotions.find()
+    .then((pp) => (productsPromotionsList = [...pp]))
+    .catch((err) => res.json('something went wrong'));
+  await Promotions.find()
+    .then((prmos) => (promotionsList = [...prmos]))
+    .catch((err) => res.json('something went wrong'));
+  await Departments.find()
+    .then((deps) => (departmentsList = [...deps]))
+    .catch((err) => res.json('something went wrong'));
+  let productsWithPromos = productList.map((product) => {
+    let promoDetails = promotionsList.find((promoDetails) => {
+      let promotion = productsPromotionsList.find((pp) => pp.product_id == product._id);
+      if (promotion) {
+        return promoDetails._id == promotion.promotion_id;
+      }
+      return null;
+    });
+
+    console.log(promoDetails);
+    let departmentName = departmentsList.find((dep) => dep._id == product.department_id);
+
+    return {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      department: departmentName.name,
+      newPrice:
+        (promoDetails && product.price * ((100 - promoDetails.discount) / 100)) || null,
+      code: (promoDetails && promoDetails.code) || null,
+      isActive: (promoDetails && Boolean(promoDetails.active)) || false,
+    };
+  });
+  res.status(200).json(productsWithPromos);
 });
 
 /*

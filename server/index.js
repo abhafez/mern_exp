@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const departments = require('./routes/api/Departments');
 const promotions = require('./routes/api/Promotions');
 const products = require('./routes/api/Products');
-const ProductsPromotions = require('./routes/api/ProductsPromotions');
 
 const cors = require('cors');
 const app = express();
