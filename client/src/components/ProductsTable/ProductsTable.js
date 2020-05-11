@@ -68,8 +68,8 @@ function ProductsTable(props) {
 }
 
 ProductsTable.propTypes = {
-  tableHeaders: PropTypes.object,
-  productList: PropTypes.object,
+  tableHeaders: PropTypes.array,
+  productList: PropTypes.array,
   itemsPerPage: PropTypes.number,
   handlItemsPerPage: PropTypes.func,
   maxLength: PropTypes.number,

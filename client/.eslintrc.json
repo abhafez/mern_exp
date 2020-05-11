@@ -13,6 +13,7 @@
   "plugins": ["prettier", "react", "react-hooks", "jsx-a11y"],
   "extends": ["airbnb", "prettier", "prettier/react"],
   "globals": {
+    "react": true,
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
@@ -85,6 +86,9 @@
       "files": ["**/*.spec.js", "**/*.test.js"],
       "env": {
         "jest": true
+      },
+      "rules": {
+        "react/react-in-jsx-scope": "off"
       }
     }
   ]
