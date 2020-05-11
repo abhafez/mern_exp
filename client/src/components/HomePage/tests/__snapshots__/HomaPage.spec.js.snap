@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Homepage /> Contains Match snapshot 1`] = `
+<div>
+  <div
+    class="ui placeholder"
+  >
+    <div
+      class="paragraph"
+    >
+      <div
+        class="line"
+      />
+      <div
+        class="line"
+      />
+      <div
+        class="line"
+      />
+      <div
+        class="line"
+      />
+      <div
+        class="line"
+      />
+      <div
+        class="line"
+      />
+      <div
+        class="line"
+      />
+    </div>
+  </div>
+</div>
+`;
