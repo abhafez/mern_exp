@@ -12,7 +12,6 @@ const ProductsPromotions = require('../../models/ProductsPromotions');
  * @access Public
  */
 router.get('/', async (req, res) => {
-  console.log(req.query.page);
   let productList;
   let productsPromotionsList;
   let promotionsList;
@@ -52,7 +51,13 @@ router.get('/', async (req, res) => {
     };
   });
   const { page, count } = req.query;
-  let paginatedData = chunk(productsWithPromos, count, page);
+
+  let paginatedData = {
+    data: {
+      list: [...chunk(productsWithPromos, count, page)],
+      totalLengh: productsWithPromos.length,
+    },
+  };
   res.status(200).json(paginatedData);
 });
 

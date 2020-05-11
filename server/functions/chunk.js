@@ -1,13 +1,23 @@
-function chunk(arr, count = 10, page) {
-  if (!page && page !== 1) {
+const { count } = require('../models/Products');
+const { check } = require('prettier');
+
+function chunk(arr, chunkSize, page) {
+  if (!page) {
     return arr;
   }
-  let chunkedData = [];
-  for (let i = 0; i < arr.length; i += count) {
-    let chunk = arr.slice(i, i + count);
-    chunkedData.push(chunk);
+  let chunckedData = [];
+  for (let i = 0; i < arr.length; i += 0) {
+    let chunk = [];
+    for (let j = 0; j < chunkSize; j += 1) {
+      if (arr[i]) {
+        chunk.push(arr[i]);
+        i += 1;
+      }
+    }
+    chunckedData.push(chunk);
   }
-  return chunkedData[page - 1];
+
+  return chunckedData[page - 1];
 }
 
 module.exports = {

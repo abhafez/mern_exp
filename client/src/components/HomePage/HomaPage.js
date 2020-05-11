@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Table, Message, Dropdown, Segment } from 'semantic-ui-react';
+import { Message } from 'semantic-ui-react';
 import useRequest, { get } from 'hooks/useRequest';
 import { Shimmer } from 'components/shared/Shimmer';
-import Pagination from 'components/Pagination';
+import ProductsTable from 'components/ProductsTable';
 
 function HomePage() {
   const [productList, setProductList] = useState(null);
@@ -29,12 +28,6 @@ function HomePage() {
     setPageNumber(1);
   };
 
-  const options = [
-    { key: 1, text: '5 Items', value: 5 },
-    { key: 2, text: '8 Items', value: 8 },
-    { key: 3, text: '12 Items', value: 12 },
-  ];
-
   useEffect(() => {
     if (response && response.data) {
       setProductList(response.data.list);
@@ -49,59 +42,18 @@ function HomePage() {
       {error && (
         <Message negative>
           <Message.Header>Something went wrong</Message.Header>
-          <p></p>
         </Message>
       )}
       {productList && (
-        <Table celled textAlign="center">
-          <Table.Header>
-            <Table.Row>
-              {tableHeaders.map((title) => (
-                <Table.HeaderCell key={title}>
-                  <FormattedMessage id={`product.${title}`} />
-                </Table.HeaderCell>
-              ))}
-            </Table.Row>
-          </Table.Header>
-
-          <Table.Body>
-            {productList.map((product) => (
-              <Table.Row key={product.id}>
-                <Table.Cell>{product.name}</Table.Cell>
-                <Table.Cell>
-                  {product.newPrice ? product.newPrice : product.price}
-                </Table.Cell>
-                <Table.Cell>{product.code}</Table.Cell>
-                <Table.Cell>{product.department}</Table.Cell>
-              </Table.Row>
-            ))}
-          </Table.Body>
-
-          <Table.Footer>
-            <Table.Row>
-              <Table.HeaderCell colSpan="4">
-                <Segment basic floated="left">
-                  <Dropdown
-                    options={options}
-                    selection
-                    value={itemsPerPage}
-                    onChange={handlItemsPerPage}
-                  />
-                </Segment>
-                <Segment basic floated="right">
-                  <Pagination
-                    numberOfItems={maxLength}
-                    itemsPerPage={itemsPerPage}
-                    pageNumber={pageNumber}
-                    onChangePage={(pageNum) => {
-                      setPageNumber(pageNum);
-                    }}
-                  />
-                </Segment>
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Footer>
-        </Table>
+        <ProductsTable
+          tableHeaders={tableHeaders}
+          productList={productList}
+          itemsPerPage={itemsPerPage}
+          handlItemsPerPage={handlItemsPerPage}
+          maxLength={maxLength}
+          pageNumber={pageNumber}
+          setPageNumber={setPageNumber}
+        />
       )}
     </>
   );

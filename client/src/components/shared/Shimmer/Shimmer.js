@@ -12,7 +12,7 @@ export function Shimmer({ fluid, type }) {
 
 export const Lines = (n) => (
   <Placeholder.Paragraph key={n + 1}>
-    {[...Array(n)].map((n, i) => (
+    {[...Array(n)].map((x, i) => (
       // eslint-disable-next-line react/no-array-index-key
       <Placeholder.Line key={i} />
     ))}
