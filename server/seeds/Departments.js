@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const Department = require('../models/Departments');
-const Products = require('../models/Products');
-const Promotions = require('../models/Promotions');
 
 const { departments } = require('../data/Departments');
 

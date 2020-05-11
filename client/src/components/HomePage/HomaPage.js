@@ -3,25 +3,39 @@ import { Message } from 'semantic-ui-react';
 import useRequest, { get } from 'hooks/useRequest';
 import { Shimmer } from 'components/shared/Shimmer';
 import ProductsTable from 'components/ProductsTable';
+import FilterDropdown from 'components/FilterDropdown/FilterDropdown';
+import { promos, departments } from 'constants/filters';
 
 function HomePage() {
   const [productList, setProductList] = useState(null);
   const [maxLength, setMaxLength] = useState(null);
   const [itemsPerPage, setItemPerPage] = useState(8);
   const [pageNumber, setPageNumber] = useState(1);
+  const [departmentSelection, setDepartmentSelection] = useState();
+  const [promoSelection, setPromoSelection] = useState();
+  const [productName, setProductName] = useState('');
+
   const { response, setRequest, error } = useRequest(
     get,
-    `products?page=${pageNumber}&count=${itemsPerPage}`,
+    `products?page=${pageNumber}&count=${itemsPerPage}${
+      promoSelection ? `&promo=${promoSelection}` : ''
+    }${departmentSelection ? `&department=${departmentSelection}` : ''}${
+      productName ? `&name=${productName}` : ''
+    }`,
   );
+
+  const promoFilter = (e, { value }) => setPromoSelection(value);
+  const departmentFilter = (e, { value }) => setDepartmentSelection(value);
+
   useEffect(() => {
     setRequest(true);
   }, []);
 
   useEffect(() => {
-    if (pageNumber || itemsPerPage) {
+    if (pageNumber || itemsPerPage || departmentSelection || promoSelection) {
       setRequest(true);
     }
-  }, [pageNumber, itemsPerPage]);
+  }, [pageNumber, itemsPerPage, departmentSelection, promoSelection]);
 
   const handlItemsPerPage = (e, data) => {
     setItemPerPage(data.value);
@@ -38,6 +52,8 @@ function HomePage() {
 
   return (
     <>
+      <FilterDropdown options={promos} onFilter={promoFilter} />
+      <FilterDropdown options={departments} onFilter={departmentFilter} />
       {!productList && <Shimmer />}
       {error && (
         <Message negative>

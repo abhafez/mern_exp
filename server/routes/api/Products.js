@@ -12,6 +12,7 @@ const ProductsPromotions = require('../../models/ProductsPromotions');
  * @access Public
  */
 router.get('/', async (req, res) => {
+  const { page, count, promo, department, name } = req.query;
   let productList;
   let productsPromotionsList;
   let promotionsList;
@@ -50,12 +51,23 @@ router.get('/', async (req, res) => {
       isActive: (promoDetails && Boolean(promoDetails.active)) || false,
     };
   });
-  const { page, count } = req.query;
 
+  let list = [...chunk(productsWithPromos, count, page)]
+    .filter((item, i, arr) => {
+      return name ? item.name.toLowerCase().includes(name.toLocaleLowerCase()) : arr;
+    })
+    .filter((product, i, arr) => {
+      let found = promotionsList.find((pro) => pro.code == promo);
+      return promo ? product.code == found.code : arr;
+    })
+    .filter((prod, i, arr) => {
+      let found = departmentsList.find((dep) => dep.name == department);
+      return department ? prod.department == found.name : arr;
+    });
   let paginatedData = {
     data: {
-      list: [...chunk(productsWithPromos, count, page)],
-      totalLengh: productsWithPromos.length,
+      list: list,
+      totalLengh: list.length,
     },
   };
   res.status(200).json(paginatedData);
