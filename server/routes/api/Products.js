@@ -13,10 +13,12 @@ const ProductsPromotions = require('../../models/ProductsPromotions');
  */
 router.get('/', async (req, res) => {
   const { page, count, promo, department, name } = req.query;
+
   let productList;
   let productsPromotionsList;
   let promotionsList;
   let departmentsList;
+
   await Products.find()
     .then((items) => (productList = items))
     .catch((err) => res.json('something went wrong'));
@@ -29,6 +31,8 @@ router.get('/', async (req, res) => {
   await Departments.find()
     .then((deps) => (departmentsList = [...deps]))
     .catch((err) => res.json('something went wrong'));
+
+  // Full List
   let productsWithPromos = productList.map((product) => {
     let promoDetails = promotionsList.find((promoDetails) => {
       let promotion = productsPromotionsList.find((pp) => pp.product_id == product._id);
@@ -52,7 +56,8 @@ router.get('/', async (req, res) => {
     };
   });
 
-  let list = [...chunk(productsWithPromos, count, page)]
+  // List and filters
+  let filteredList = productsWithPromos
     .filter((item, i, arr) => {
       return name ? item.name.toLowerCase().includes(name.toLocaleLowerCase()) : arr;
     })
@@ -64,12 +69,16 @@ router.get('/', async (req, res) => {
       let found = departmentsList.find((dep) => dep.name == department);
       return department ? prod.department == found.name : arr;
     });
+  let list = [...chunk(filteredList, count, page)];
+
   let paginatedData = {
     data: {
       list: list,
-      totalLengh: list.length,
+      filteredLength: filteredList.length,
+      totalLengh: productsWithPromos.length,
     },
   };
+
   res.status(200).json(paginatedData);
 });
 
