@@ -17,7 +17,13 @@ function Search({ value, getName, searchByName, loading }) {
         id="name-search"
         placeholder="Product Name"
       />
-      <Button id="search-btn" onClick={searchByName} loading={loading} type="button">
+      <Button
+        id="search-btn"
+        type="submit"
+        data-testid="btn"
+        onClick={searchByName}
+        loading={loading}
+      >
         Search by Name
       </Button>
     </>

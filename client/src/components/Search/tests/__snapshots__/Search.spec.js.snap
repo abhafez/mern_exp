@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loads when clicked 1`] = `
+<input
+  class="sc-AxjAm iMmbHG"
+  id="name-search"
+  placeholder="Product Name"
+  value="name"
+/>
+`;

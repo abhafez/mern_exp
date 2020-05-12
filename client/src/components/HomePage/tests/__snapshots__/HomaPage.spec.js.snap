@@ -3,6 +3,218 @@
 exports[`<Homepage /> Contains Match snapshot 1`] = `
 <div>
   <div
+    class="ui basic segment"
+  >
+    <div
+      class="sc-AxirZ fLHxDp"
+    >
+      Filters:
+       
+      <div
+        aria-expanded="false"
+        class="ui search selection dropdown"
+        role="combobox"
+        testid="dropdown"
+      >
+        <input
+          aria-autocomplete="list"
+          autocomplete="off"
+          class="search"
+          tabindex="0"
+          type="text"
+          value=""
+        />
+        <div
+          aria-atomic="true"
+          aria-live="polite"
+          class="text"
+          role="alert"
+        />
+        <i
+          aria-hidden="true"
+          class="dropdown icon"
+        />
+        <div
+          class="menu transition"
+          role="listbox"
+        >
+          <div
+            aria-checked="false"
+            aria-selected="true"
+            class="selected item"
+            role="option"
+            style="pointer-events: all;"
+          >
+            <span
+              class="text"
+            >
+              Toy-20
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-selected="false"
+            class="item"
+            role="option"
+            style="pointer-events: all;"
+          >
+            <span
+              class="text"
+            >
+              Game-30
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-selected="false"
+            class="item"
+            role="option"
+            style="pointer-events: all;"
+          >
+            <span
+              class="text"
+            >
+              Gift-50
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-selected="false"
+            class="item"
+            role="option"
+            style="pointer-events: all;"
+          >
+            <span
+              class="text"
+            >
+              Book-80
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-AxiKw ggyaPd"
+    >
+      <div
+        aria-expanded="false"
+        class="ui search selection dropdown"
+        role="combobox"
+        testid="dropdown"
+      >
+        <input
+          aria-autocomplete="list"
+          autocomplete="off"
+          class="search"
+          tabindex="0"
+          type="text"
+          value=""
+        />
+        <div
+          aria-atomic="true"
+          aria-live="polite"
+          class="text"
+          role="alert"
+        />
+        <i
+          aria-hidden="true"
+          class="dropdown icon"
+        />
+        <div
+          class="menu transition"
+          role="listbox"
+        >
+          <div
+            aria-checked="false"
+            aria-selected="true"
+            class="selected item"
+            role="option"
+            style="pointer-events: all;"
+          >
+            <span
+              class="text"
+            >
+              Gaming
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-selected="false"
+            class="item"
+            role="option"
+            style="pointer-events: all;"
+          >
+            <span
+              class="text"
+            >
+              Toys
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-selected="false"
+            class="item"
+            role="option"
+            style="pointer-events: all;"
+          >
+            <span
+              class="text"
+            >
+              Gifts
+            </span>
+          </div>
+          <div
+            aria-checked="false"
+            aria-selected="false"
+            class="item"
+            role="option"
+            style="pointer-events: all;"
+          >
+            <span
+              class="text"
+            >
+              Books
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ui hidden divider"
+    />
+    <input
+      class="sc-AxjAm iMmbHG"
+      id="name-search"
+      placeholder="Product Name"
+      value=""
+    />
+    <button
+      class="ui button"
+      data-testid="btn"
+      id="search-btn"
+      type="submit"
+    >
+      Search by Name
+    </button>
+    <button
+      class="ui vertical animated button"
+    >
+      <div
+        class="hidden content"
+      >
+        Clear
+      </div>
+      <div
+        class="visible content"
+      >
+        <i
+          aria-hidden="true"
+          class="trash icon"
+        />
+      </div>
+    </button>
+  </div>
+  <div
     class="ui placeholder"
   >
     <div

@@ -33,7 +33,7 @@ function HomePage() {
   const searchByName = () => setSubmitName(true);
   const clear = () => {
     setDepartmentSelection(null);
-    setProductName(null);
+    setProductName('');
     setPromoSelection(null);
   };
 
@@ -87,7 +87,11 @@ function HomePage() {
         </DepartmentFilterstyled>
 
         <Divider hidden />
-        <Search getName={handleNameInput} searchByName={searchByName} />
+        <Search
+          getName={handleNameInput}
+          searchByName={searchByName}
+          value={productName}
+        />
         <Button animated="vertical" onClick={clear}>
           <Button.Content hidden>Clear</Button.Content>
           <Button.Content visible>

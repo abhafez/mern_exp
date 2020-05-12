@@ -1,6 +1,6 @@
 {
   "files.associations": {
     "**/client/*/*.js": "javascriptreact",
-    "*.js": "javascript",
+    "*.js": "javascript"
   }
 }

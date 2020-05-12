@@ -3,7 +3,14 @@ import PropTypes from 'prop-types';
 import { Dropdown } from 'semantic-ui-react';
 
 const FilterDropdown = ({ value, options, onFilter }) => (
-  <Dropdown options={options} search value={value} selection onChange={onFilter} />
+  <Dropdown
+    options={options}
+    search
+    value={value}
+    selection
+    onChange={onFilter}
+    testid="dropdown"
+  />
 );
 
 FilterDropdown.propTypes = {

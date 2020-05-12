@@ -6,15 +6,7 @@ function SideBar() {
     <>
       <Menu.Item as="a">
         <Icon name="home" as="i" />
-        Home
-      </Menu.Item>
-      <Menu.Item as="a">
-        <Icon name="gamepad" />
-        Games
-      </Menu.Item>
-      <Menu.Item as="a">
-        <Icon name="camera" />
-        Channels
+        Home Page
       </Menu.Item>
     </>
   );

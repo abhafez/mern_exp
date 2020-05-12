@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductsTable /> Should be able to update page number 1`] = `
+<table
+  class="ui celled center aligned table"
+>
+  <thead
+    class=""
+  >
+    <tr
+      class=""
+    >
+      <th
+        class=""
+      >
+        Product Name
+      </th>
+      <th
+        class=""
+      >
+        Product Price
+      </th>
+      <th
+        class=""
+      >
+        Promotion Code
+      </th>
+      <th
+        class=""
+      >
+        Department
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    class=""
+  >
+    <tr
+      class=""
+    >
+      <td
+        class=""
+      >
+        PC
+      </td>
+      <td
+        class=""
+      >
+        30000
+      </td>
+      <td
+        class=""
+      />
+      <td
+        class=""
+      />
+    </tr>
+  </tbody>
+  <tfoot
+    class=""
+  >
+    <tr
+      class=""
+    >
+      <th
+        class=""
+        colspan="4"
+      >
+        <div
+          class="ui basic left floated segment"
+        >
+          <div
+            aria-expanded="false"
+            class="ui selection dropdown"
+            role="listbox"
+            tabindex="0"
+          >
+            <div
+              aria-atomic="true"
+              aria-live="polite"
+              class="text"
+              role="alert"
+            />
+            <i
+              aria-hidden="true"
+              class="dropdown icon"
+            />
+            <div
+              class="menu transition"
+            >
+              <div
+                aria-checked="false"
+                aria-selected="true"
+                class="selected item"
+                role="option"
+                style="pointer-events: all;"
+              >
+                <span
+                  class="text"
+                >
+                  5 Items
+                </span>
+              </div>
+              <div
+                aria-checked="false"
+                aria-selected="false"
+                class="item"
+                role="option"
+                style="pointer-events: all;"
+              >
+                <span
+                  class="text"
+                >
+                  8 Items
+                </span>
+              </div>
+              <div
+                aria-checked="false"
+                aria-selected="false"
+                class="item"
+                role="option"
+                style="pointer-events: all;"
+              >
+                <span
+                  class="text"
+                >
+                  12 Items
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ui basic right floated segment"
+        >
+          <div
+            aria-label="Pagination Navigation"
+            class="ui pagination menu"
+            id="pagination-element"
+            role="navigation"
+          >
+            <div
+              aria-current="false"
+              aria-disabled="false"
+              aria-label="Previous item"
+              class="disabled item"
+              id="first-page"
+              role="button"
+              tabindex="0"
+              type="firstItem"
+              value="1"
+            >
+              ⟨⟨
+            </div>
+            <div
+              aria-current="false"
+              aria-disabled="false"
+              aria-label="Previous item"
+              class="disabled item"
+              role="button"
+              tabindex="0"
+              type="prevItem"
+            >
+              ⟨
+            </div>
+            <div
+              aria-current="true"
+              aria-disabled="false"
+              class="active item"
+              role="button"
+              tabindex="0"
+              type="pageItem"
+              value="1"
+            >
+              1
+            </div>
+            <div
+              aria-current="false"
+              aria-disabled="false"
+              aria-label="Next item"
+              class="disabled item"
+              role="button"
+              type="nextItem"
+            >
+              ⟩
+            </div>
+            <div
+              aria-current="false"
+              aria-disabled="false"
+              aria-label="Next item"
+              class="disabled item"
+              tabindex="0"
+              type="nextItem"
+            >
+              ⟩⟩
+            </div>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+`;
