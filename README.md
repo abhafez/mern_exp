@@ -4,7 +4,7 @@
 
 clone this repo
 
-`https://github.com/abhafez/mern_exp`
+`git clone https://github.com/abhafez/mern_exp.git`
 
 cd to the project's folder
 
